@@ -9,7 +9,7 @@ import { ContactPrompt } from "@/components/contact-prompt"
 
 function NCFlagComponent() {
   return (
-    <div className="fixed bottom-4 left-4 z-50 opacity-[0.15] hover:opacity-[0.25] transition-opacity duration-500 pointer-events-none">
+    <div className="fixed bottom-4 left-4 z-50 opacity-[40] hover:opacity-[100] transition-opacity duration-500 pointer-events-none">
       <svg
         width="48"
         height="32"
@@ -60,28 +60,10 @@ export default function Home() {
       container.removeEventListener("wheel", handleWheel)
       scrollContainer.removeEventListener("scroll", handleScroll)
     }
-  }, [])
+  }, []) // line change test
 
-  // Calculate opacity for each section based on scroll progress
-  const getSectionStyle = (sectionIndex: number) => {
-    const sectionStart = sectionIndex * 0.25
-    const sectionEnd = (sectionIndex + 1) * 0.25
-    const fadeOutStart = sectionStart + 0.15
-    
-    let opacity = 1
-    if (scrollProgress > fadeOutStart && scrollProgress < sectionEnd + 0.1) {
-      opacity = Math.max(0.1, 1 - ((scrollProgress - fadeOutStart) / 0.1) * 0.9)
-    } else if (scrollProgress >= sectionEnd + 0.1) {
-      opacity = 0.1
-    }
-    
-    return {
-      opacity,
-      transition: "opacity 0.15s ease-out"
-    }
-  }
-
-  return (
+    // line change test 
+      
     <div ref={containerRef} className="h-screen overflow-hidden bg-background relative">
       <NCFlagComponent />
       <div 
