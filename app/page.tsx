@@ -44,7 +44,7 @@ export default function Home() {
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault()
-      scrollContainer.scrollLeft -= e.deltaY * 5
+      scrollContainer.scrollRight -= e.deltaY * 5
     }
 
     const handleScroll = () => {
